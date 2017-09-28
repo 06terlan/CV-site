@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	/*W = "LWSKYJMPHDNGFXAZBRCQEOUTVI",
+function d() {
+            return 42
+        }*/
+        <br/>
+</body>
+</html>
+<script>
+	var W = "LWSKYJMPHDNGFXAZBRCQEOUTVI";
+	function d() {
+            return 42
+        }
+
+    //code below
+	//var word 		= "You are using illegal copy . This site bolong to Terlan Abdullayev .";
+	var word 		= "terlan";
+	var specials 	= { " " : "##" , "\n" : "$$" , "." : 33 , "-" : 34 , "!" : 35 , "," : 36 };
+	function getSpecialKeyCode( l ){ if( typeof specials[l] != "undefined" ) return ( isNaN( specials[l] ) ? specials[l] : specials[l] + d() ); else false; }
+	function getKeyCode( l ){ for(var n in W) if( W[n] == l.toUpperCase() ) return parseInt( n ) + d();  }
+	function getCode( l ){ return getSpecialKeyCode( l ) ? getSpecialKeyCode( l ) :  getKeyCode( l ) ;  }
+	for(var n in word) document.write( getCode( word[n] ) + "" );
+</script>
