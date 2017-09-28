@@ -5,7 +5,7 @@ namespace App\Http\Requests\Admin;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 
-class NewPostRequest extends FormRequest
+class NewSkillRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -29,10 +29,8 @@ class NewPostRequest extends FormRequest
     public function rules()
     {
         return [
-            'header'        => 'required|min:5|max:100|string',
-            'short_content' => 'required|min:5|max:200|string',
-            'content'       => 'required|min:5|string',
-            'id'            => 'required|integer'
+            'skill'         => 'required|min:1|max:100|string',
+            'percent'       => 'required|integer|max:100|min:1'
         ];
     }
 }

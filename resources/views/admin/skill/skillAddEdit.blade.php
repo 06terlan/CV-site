@@ -7,7 +7,7 @@
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Post</small></h2>
+                    <h2>Skill</small></h2>
                     <ul class="nav navbar-right panel_toolbox">
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
                     </ul>
@@ -15,36 +15,29 @@
                 </div>
                 <div class="x_content">
                     <br>
-                    <form autocomplete="off" class="form-horizontal form-label-left" novalidate=""  method="post" action="{{ url('admin/posts/addEdit/'.$id) }}">
+                    <form autocomplete="off" class="form-horizontal form-label-left" novalidate=""  method="post" action="{{ url('admin/skills/addEdit/'.$id) }}">
                         <input type="hidden" name="id" value="{{ $id }}" /> 
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Header
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Skill
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input required="" name="header" data-validate-length-range="5,100" type="text" class="form-control" placeholder="Header" value="{{ $Post['header'] }}">
+                                <input required="" name="skill" data-validate-length-range="1,100" type="text" class="form-control" placeholder="Skill" value="{{ $Skill['skill'] }}">
                             </div>
                         </div>
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Short Content
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Percent
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <textarea required="" name="short_content" data-validate-length-range="5,200" class="form-control" rows="3" placeholder="Short Content">{{ $Post['short_content'] }}</textarea>
+                                <input required="" name="percent" data-validate-minmax="1,100" type="number" class="form-control" placeholder="Percent" value="{{ $Skill['percent'] }}">
                             </div>
                         </div>
-                        <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Content
-                            </label>
-                            <div class="col-md-9 col-sm-6 col-xs-12">
-                                <textarea id="descr" style="display:none;" name="content">{{ $Post['content'] }}</textarea>
-                            </div>
-                        </div>
-                        </div>
+                    </div>
                         <div class="ln_solid"></div>
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <div class="form-group">
                             <div class="col-md-9 col-sm-6 col-xs-12 col-md-offset-3">
                                 <button type="submit" class="btn btn-success">Save</button>
-                                <a class="btn btn-default" href="{{ url('admin/posts/') }}" type="reset">Cancel</a>
+                                <a class="btn btn-default" href="{{ url('admin/skills/') }}" type="reset">Cancel</a>
                             </div>
                         </div>
                     </form>

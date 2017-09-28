@@ -32,10 +32,10 @@ Route::group(['prefix' => 'admin' , 'middleware' => 'auth' ], function(){
 	});
 
 	//post
-	Route::get('posts', 'Admin\PostController@index');
-	Route::get('posts/addEdit/{id}', 'Admin\PostController@addEdit')->where('which','[0-9]{1,}');
-	Route::post('posts/addEdit/{id}', 'Admin\PostController@addEditPost')->where('which','[0-9]{1,}');
-	Route::get('posts/delete/{id}', 'Admin\PostController@delete')->where('which','[0-9]{1,}');
+	Route::get('skills', 'Admin\SkillController@index');
+	Route::get('skills/addEdit/{id}', 'Admin\SkillController@addEdit')->where('which','[0-9]{1,}');
+	Route::post('skills/addEdit/{id}', 'Admin\SkillController@addEditPost')->where('which','[0-9]{1,}');
+	Route::get('skills/delete/{id}', 'Admin\SkillController@delete')->where('which','[0-9]{1,}');
 
 	//about
 	Route::get('about', 'Admin\AboutController@index');
