@@ -1,7 +1,7 @@
 <div class="col-md-3 left_col">
     <div class="left_col scroll-view">
         <div class="navbar nav_title" style="border: 0;">
-            <a href="home" class="site_title"><i class="fa fa-paw"></i> <span>{{ Auth::user()->name }}</span></a>
+            <a href="home" class="site_title"><i class="fa fa-paw"></i> <span>Admin Panel</span></a>
         </div>
 
         <div class="clearfix"></div>
@@ -13,7 +13,7 @@
             </div>
             <div class="profile_info">
                 <span>Welcome,</span>
-                <h2>{{ Auth::user()->name }}</h2>
+                <h2>{{ Auth::user()->fullname() }}</h2>
             </div>
         </div>
         <!-- /menu profile quick info -->
@@ -67,7 +67,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li class="">
                     <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                        <img src="{{ url(Auth::user()->photo()) }}" alt="">{{ Auth::user()->name }}
+                        <img src="{{ url(Auth::user()->photo()) }}" alt="">{{ Auth::user()->fullname() }}
                         <span class=" fa fa-angle-down"></span>
                     </a>
                     <ul class="dropdown-menu dropdown-usermenu pull-right">

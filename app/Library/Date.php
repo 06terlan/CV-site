@@ -123,7 +123,7 @@ class Date
 		else if( $type == 'm' )
 			return (int)($dif / 60 / 60 / 24 / 30) ;
 		else if( $type == 'Y' )
-			return ((new \DateTime($time2))->diff(new \DateTime($time1)))->y; //(int)($dif / 60 / 60 / 24 / 365) ;
+			return (new \DateTime($time1))->diff(new \DateTime($time2))->y ;
 		else return 0;
 	}
 

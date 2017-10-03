@@ -19,7 +19,7 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Name</th>
+                                <th>Full Name</th>
                                 <th>Email</th>
                                 <th>Login</th>
                                 <th>Action</th>
@@ -29,7 +29,7 @@
                             @foreach ($Users as $user)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $user->name }}</td>
+                                    <td>{{ $user->fullname() }}</td>
                                     <td>{{ $user->email }}</td>
                                     <td>{{ $user->login }}</td>
                                     <th>

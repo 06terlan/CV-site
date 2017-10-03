@@ -19,7 +19,7 @@
                 <ul class="profile-list">
                     <li class="clearfix">
                         <strong class="title">Age</strong>
-                        <span class="cont">{{ App\Library\Date::diff(App\Library\Date::d(null,'m/d/Y'),$user->birthday,'Y') }}</span>
+                        <span class="cont">{{ $user->birthday == "" ? "" : App\Library\Date::diff(App\Library\Date::d(null,'Y-m-d'),$user->birthday,'Y') }}</span>
                     </li>
                     <li class="clearfix">
                         <strong class="title">Address</strong>
@@ -35,7 +35,7 @@
                     </li>
                     <li class="clearfix">
                         <strong class="title">Date of birth</strong>
-                        <span class="cont">{{ App\Library\Date::d($user->birthday,'F d,Y') }}</span>
+                        <span class="cont">{{ $user->birthday == "" ? "" : App\Library\Date::d($user->birthday,'F d,Y') }}</span>
                     </li>
                     <!-- <li class="clearfix">
                         <strong class="title"><span class="button">On Vacation</span></strong>

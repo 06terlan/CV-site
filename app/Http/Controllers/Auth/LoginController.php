@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -18,7 +20,9 @@ class LoginController extends Controller
     |
     */
 
-    use AuthenticatesUsers;
+    use AuthenticatesUsers{
+        attemptLogin as attemptLoginTrair;
+    }
 
     /**
      * Where to redirect users after login.
@@ -35,5 +39,21 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function attemptLogin(Request $request)
+    {
+        if( $this->attemptLoginTrair($request) )
+        {
+            //check if user was deleted
+            if( Auth::user()->deleted == 0 ) return true;
+            else return $this->logout( $request );
+        }
+        else return false;
     }
 }

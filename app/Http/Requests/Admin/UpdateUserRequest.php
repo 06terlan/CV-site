@@ -29,7 +29,8 @@ class UpdateUserRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'      => 'required|min:1',
+            'name'      => 'string|required|min:1',
+            'surname'   => 'string',
             'email'     => 'required|email',
             'birthday'  => 'required|date_format:"d-m-Y"'
         ];

@@ -20,7 +20,7 @@ class UsersController extends Controller
     public function index()
     {
         $dataToBlade = [
-            'Users' => User::all()
+            'Users' => User::realUsers()->get()
         ];
         return view('admin.user.users',$dataToBlade);
     }
@@ -29,25 +29,22 @@ class UsersController extends Controller
     {
         $dataToBlade = [
             'id' => $id,
-            'User' => User::find($id)
+            'User' => User::realUsers()->where('id',$id)->first()
         ];
 
         return view('admin.user.userAddEdit',$dataToBlade);
     }
 
-    public function addEditUser(Request $request,$id)
+    public function addEditUser(UpdateSaveUserRequest $request,$id)
     {
-        $UpdateUserRequestR = new UpdateSaveUserRequest();
-        $validate = Validator::make($request->all(), $UpdateUserRequestR->rules());
-        if($validate->fails()) return redirect()->back()->withErrors($validate);
-
         if($id == 0)
         {
             $validate = Validator::make($request->all(), ['password' => 'required|string|min:6']);
             if($validate->fails()) return redirect()->back()->withErrors($validate);
 
             $user = new User();
-            $user->name = Input::get("name");
+            $user->firstname = Input::get("name");
+            $user->surname = Input::get("surname","");
             $user->email = Input::get("email");
             $user->login = Input::get("login");
             $user->password = Hash::make(Input::get("password"));
@@ -58,12 +55,13 @@ class UsersController extends Controller
         else
         {
             $user = User::find($id);;
-            $user->name = Input::get("name");
+            $user->firstname = Input::get("name");
+            $user->surname = Input::get("surname","");
             $user->email = Input::get("email");
             $user->login = Input::get("login");
             $user->role = Input::get("role");
 
-            if( !empty(Input::get("password")) )
+            if( !empty(Input::get("password","")) )
             {
                 $validate = Validator::make($request->all(), ['password' => 'required|string|min:6']);
                 if($validate->fails()) return redirect()->back()->withErrors($validate);
@@ -81,8 +79,9 @@ class UsersController extends Controller
     {
         if( Auth::user()->id != $id )
         {
-            $user = User::find($id);
-            $user->delete();
+            $user = User::realUsers()->where('id',$id)->first();
+            $user->deleted = 1;
+            $user->save();
         }
 
         return redirect("admin/users");

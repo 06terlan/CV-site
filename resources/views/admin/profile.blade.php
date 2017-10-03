@@ -26,10 +26,18 @@
                             </div>
                         </div>
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Full Name
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Name
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input required="" name="name" data-validate-length-range="5,20" type="text" class="form-control has-feedback-left" placeholder="Full Name" value="{{ Auth::user()->name }}">
+                                <input required="" name="name" data-validate-length-range="5,20" type="text" class="form-control has-feedback-left" placeholder="Name" value="{{ Auth::user()->firstname }}">
+                                <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                            </div>
+                        </div>
+                        <div class="item form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Surname
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input name="surname" data-validate-length-range="5,20" type="text" class="form-control has-feedback-left" placeholder="Surname" value="{{ Auth::user()->surname }}">
                                 <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                             </div>
                         </div>

@@ -18,7 +18,8 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->string('firstname',50);
+            $table->string('surname',50)->nullable();
             $table->string('email',60)->unique();
             $table->string('login',60)->unique();
             $table->string('password');
@@ -28,17 +29,23 @@ class CreateUsersTable extends Migration
             $table->string('job',100)->nullable();
             $table->string('phone',50)->nullable();
             $table->tinyInteger('role');
+            $table->boolean('deleted')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });
 
         //auto insert an admin
-        $user = new User();
-        $user->name = "Admin";
-        $user->email = "example@example.com";
-        $user->login = "admin";
-        $user->password = Hash::make("123456");
-        $user->role = MyClass::ADMIN_ROLE;
+        $user               = new User();
+        $user->firstname    = "Tərlan";
+        $user->surname      = "Abdullayev";
+        $user->email        = "terlan.abd@gmail.com";
+        $user->login        = "admin";
+        $user->password     = Hash::make("123456");
+        $user->role         = MyClass::ADMIN_ROLE;
+        $user->address      = "Bakıxanov q. ,Yaşar Əliyev küç.,Uğur-2";
+        $user->phone        = "(070) 689-9040";
+        $user->job          = "Programmer";
+
         $user->save();
     }
 

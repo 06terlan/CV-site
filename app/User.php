@@ -28,6 +28,17 @@ class User extends Authenticatable
         'password', 'remember_token', 'login'
     ];
 
+    //not deleted users
+    public static function realUsers()
+    {
+        return self::where('deleted' , 0)->orderBy('created_at', 'desc');
+    }
+
+    public function fullname()
+    {
+        return $this->firstname . " " . $this->surname;
+    }
+
     public function photo()
     {
         if( !empty($this->thumb) && file_exists( public_path() . "/" . MyClass::USER_PROFIL_PIC_DIR . $this->thumb)) {
@@ -44,10 +55,10 @@ class User extends Authenticatable
             unlink( public_path() . MyClass::USER_PROFIL_PIC_DIR . $this->thumb );
     }
 
-    public function delete()
+    /*public function delete()
     {
         $this->deletePic();
 
         parent::delete();
-    }
+    }*/
 }
