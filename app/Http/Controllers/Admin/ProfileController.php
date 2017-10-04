@@ -60,7 +60,7 @@ class ProfileController extends Controller
 
             $user->deletePic();
 
-            Image::make($image->getRealPath())->resize(200, 200)->save($path);
+            Image::make($image->getRealPath())->resize(400, 400)->save($path);
             $user->thumb = $filename;
         }
 
