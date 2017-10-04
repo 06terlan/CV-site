@@ -51,8 +51,8 @@ class User extends Authenticatable
     //delete profil pic if it is exist
     public function deletePic()
     {
-        if( !empty($this->thumb) && file_exists( public_path() . MyClass::USER_PROFIL_PIC_DIR . $this->thumb) )
-            unlink( public_path() . MyClass::USER_PROFIL_PIC_DIR . $this->thumb );
+        if( !empty($this->thumb) && file_exists( public_path() . "/" . MyClass::USER_PROFIL_PIC_DIR . $this->thumb) )
+            unlink( public_path() . "/" . MyClass::USER_PROFIL_PIC_DIR . $this->thumb );
     }
 
     /*public function delete()
