@@ -14,12 +14,12 @@
            <div class="col-xs-7">
              <div class="profile-info">
                <div class="profile-preword"><span>Hello</span></div>
-               <h1 class="profile-title"><span>I'm</span> {{ $user->name }}</h1>
+               <h1 class="profile-title"><span>I'm</span> {{ $user->fullname() }}</h1>
                <h2 class="profile-position">{{ $user->job }}</h2></div>
                 <ul class="profile-list">
                     <li class="clearfix">
                         <strong class="title">Age</strong>
-                        <span class="cont">{{ $user->birthday == "" ? "" : App\Library\Date::diff(App\Library\Date::d(null,'Y-m-d'),$user->birthday,'Y') }}</span>
+                        <span class="cont">{{ $user->birthday == "" ? "-" : App\Library\Date::diff(App\Library\Date::d(null,'Y-m-d'),$user->birthday,'Y') }}</span>
                     </li>
                     <li class="clearfix">
                         <strong class="title">Address</strong>
@@ -35,7 +35,7 @@
                     </li>
                     <li class="clearfix">
                         <strong class="title">Date of birth</strong>
-                        <span class="cont">{{ $user->birthday == "" ? "" : App\Library\Date::d($user->birthday,'F d,Y') }}</span>
+                        <span class="cont">{{ $user->birthday == "" ? "-" : App\Library\Date::d($user->birthday,'F d,Y') }}</span>
                     </li>
                     <!-- <li class="clearfix">
                         <strong class="title"><span class="button">On Vacation</span></strong>
@@ -47,7 +47,7 @@
        </div>
        <div class="profile-social">
          <ul class="social">
-           <li><a class="ripple-centered" href="https://www.facebook.com/" target="_blank"><i class="rsicon rsicon-facebook"></i></a></li>
+           <li><a class="ripple-centered" href="https://www.facebook.com/terlan.abdullayev.16" target="_blank"><i class="rsicon rsicon-facebook"></i></a></li>
            <li><a class="ripple-centered" href="https://twitter.com/" target="_blank"><i class="rsicon rsicon-twitter"></i></a></li>
            <li><a class="ripple-centered" href="https://www.linkedin.com/" target="_blank"><i class="rsicon rsicon-linkedin"></i></a></li>
            <li><a class="ripple-centered" href="https://plus.google.com/" target="_blank"><i class="rsicon rsicon-google-plus"></i></a></li>
@@ -57,10 +57,12 @@
        </div>
      </div>
 
-                 <div class="section-txt-btn">
-                     <p><a class="btn btn-lg btn-border ripple" target="_blank" href="http://dev.novembit.com/rs_card/wp-content/uploads/2015/11/test-1.pdf">Download Resume</a></p>
-                     <p>Hello! I’m Robert Smith. Senior Web Developer specializing in front end development. Experienced with all stages of the development cycle for dynamic web projects. Well-versed in numerous programming languages including JavaScript, SQL, and C. Stng background in project management and customer relations.</p>
-                 </div>
+      <div class="section-txt-btn">
+          <p><a class="btn btn-lg btn-border ripple" target="_blank" href="http://dev.novembit.com/rs_card/wp-content/uploads/2015/11/test-1.pdf">Download Resume</a></p>
+          <p>
+              {!! $about !!}
+          </p>
+      </div>
    </div>  
  </section><!-- #about -->
                              
