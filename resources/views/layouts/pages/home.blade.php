@@ -72,8 +72,10 @@
    <div class="animate-up animated">
      <h2 class="section-title">Professional  Skills</h2>
      <div class="section-box">
+        @php ( $count = 0 )
         @foreach ( $skills as $skill )
-            @if ( $loop->index % 2 == 0 )
+            @php ( $count++ )
+            @if ( $count % 2 == 0 )
                 <div class="row">             
                  <div class="col-sm-6">
                    <div class="progress-bar animate-right">
@@ -101,7 +103,10 @@
                </div>
             @endif
         @endforeach
-        </div>
+
+        @if( $count % 2 == 1 )
+            </div>
+        @endif
      </div>
    </div>  
  </section><!-- #skills -->
