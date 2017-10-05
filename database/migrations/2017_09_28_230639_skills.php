@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use App\Models\Skill;
 
 class Skills extends Migration
 {
@@ -20,6 +21,15 @@ class Skills extends Migration
             $table->boolean('deleted')->default(0);
             $table->timestamp('created_at')->useCurrent();
         });
+
+        //outo insert data
+        foreach ( json_decode(Illuminate\Support\Facades\Storage::get('skills.json',""),"true") as  $skill)
+        {
+            $Newskill = new Skill();
+            $Newskill->skill = $skill->skill;
+            $Newskill->percent = $skill->percent;
+            $Newskill->save();
+        }
     }
 
     /**

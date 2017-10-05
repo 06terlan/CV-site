@@ -53,7 +53,7 @@ Route::get('{home?}', 'HomeController@index')->where('home','home');
 
 //about
 Route::get('/test', function(){
-	Illuminate\Support\Facades\Storage::put('skills.json', App\Models\Skill::all()->toJson() );
+	Illuminate\Support\Facades\Storage::put('skills.json', App\Models\Skill::realSkill()->get()->toJson() );
 	$data = Illuminate\Support\Facades\Storage::get('skills.json',"");
 	return $data;
 });
