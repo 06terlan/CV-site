@@ -13,3 +13,5 @@
 <!-- Styles -->
 {!! Html::style('asset/style(1).css') !!}
 {!! Html::style('asset/theme-color.css') !!}
+
+@yield('style')

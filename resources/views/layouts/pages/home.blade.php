@@ -6,7 +6,7 @@
  <section id="about" class="section section-about">
    <div class="animate-up animated">
      <div class="section-box">
-     
+
        <div class="profile">
          <div class="row">
            <div class="col-xs-5">
@@ -50,11 +50,11 @@
        <div class="profile-social">
          <ul class="social">
            <li><a class="ripple-centered" href="https://www.facebook.com/terlan.abdullayev.16" target="_blank"><i class="rsicon rsicon-facebook"></i></a></li>
-           <li><a class="ripple-centered" href="https://twitter.com/" target="_blank"><i class="rsicon rsicon-twitter"></i></a></li>
-           <li><a class="ripple-centered" href="https://www.linkedin.com/" target="_blank"><i class="rsicon rsicon-linkedin"></i></a></li>
-           <li><a class="ripple-centered" href="https://plus.google.com/" target="_blank"><i class="rsicon rsicon-google-plus"></i></a></li>
-           <li><a class="ripple-centered" href="https://dribbble.com/" target="_blank"><i class="rsicon rsicon-dribbble"></i></a></li>
-           <li><a class="ripple-centered" href="https://www.instagram.com/" target="_blank"><i class="rsicon rsicon-instagram"></i></a></li>
+           <li><a class="ripple-centered"><i class="rsicon rsicon-twitter"></i></a></li>
+           <li><a class="ripple-centered" href="https://www.linkedin.com/in/terlan-abdullayev-45b76783/" target="_blank"><i class="rsicon rsicon-linkedin"></i></a></li>
+           <li><a class="ripple-centered"><i class="rsicon rsicon-google-plus"></i></a></li>
+           <li><a class="ripple-centered"><i class="rsicon rsicon-dribbble"></i></a></li>
+           <li><a class="ripple-centered" href="" target="_blank"><i class="rsicon rsicon-instagram"></i></a></li>
          </ul>
        </div>
      </div>
@@ -72,83 +72,36 @@
    <div class="animate-up animated">
      <h2 class="section-title">Professional  Skills</h2>
      <div class="section-box">
-       <div class="row">             
-         <div class="col-sm-6">
-           <div class="progress-bar animated">
-             <div class="bar-data">
-               <span class="bar-title">Wordpress</span>
-               <span class="bar-value">80%</span>
-             </div>
-             <div class="bar-line">
-               <span class="bar-fill" data-width="51%" style="width: 51%;"></span>
-             </div>
-           </div>
-         </div>
-         
-         <div class="col-sm-6">
-           <div class="progress-bar animated">
-             <div class="bar-data">
-               <span class="bar-title">JavaScript</span>
-               <span class="bar-value">52%</span>
-             </div>
-             <div class="bar-line">
-               <span class="bar-fill" data-width="67%" style="width: 67%;"></span>
-             </div>
-           </div>
-         </div>
-       </div>
-       
-       <div class="row">             
-         <div class="col-sm-6">
-           <div class="progress-bar animated">
-             <div class="bar-data">
-               <span class="bar-title">Drupal</span>
-               <span class="bar-value">61%</span>
-             </div>
-             <div class="bar-line">
-               <span class="bar-fill" data-width="79%" style="width: 79%;"></span>
-             </div>
-           </div>
-         </div>
-         
-         <div class="col-sm-6">
-           <div class="progress-bar animated">
-             <div class="bar-data">
-               <span class="bar-title">HTML &amp; CSS</span>
-               <span class="bar-value">89%</span>
-             </div>
-             <div class="bar-line">
-               <span class="bar-fill" data-width="67%" style="width: 67%;"></span>
-             </div>
-           </div>
-         </div>
-       </div>
-       
-       <div class="row">             
-         <div class="col-sm-6">
-           <div class="progress-bar animated">
-             <div class="bar-data">
-               <span class="bar-title">PHP &amp; MySQL</span>
-               <span class="bar-value">99%</span>
-             </div>
-             <div class="bar-line">
-               <span class="bar-fill" data-width="54%" style="width: 54%;"></span>
-             </div>
-           </div>
-         </div>
-         
-         <div class="col-sm-6">
-           <div class="progress-bar animated">
-             <div class="bar-data">
-               <span class="bar-title">Photoshop</span>
-               <span class="bar-value">97%</span>
-             </div>
-             <div class="bar-line">
-               <span class="bar-fill" data-width="80%" style="width: 80%;"></span>
-             </div>
-           </div>
-         </div>
-       </div>
+        @foreach ( $skills as $skill )
+            @if ( $loop->index % 2 == 0 )
+                <div class="row">             
+                 <div class="col-sm-6">
+                   <div class="progress-bar animate-right">
+                     <div class="bar-data">
+                       <span class="bar-title">{{ $skill->skill }}</span>
+                       <span class="bar-value">{{ $skill->percent }}%</span>
+                     </div>
+                     <div class="bar-line">
+                       <span class="bar-fill" data-width="{{ $skill->percent }}%"></span>
+                     </div>
+                   </div>
+                 </div>
+            @else
+                <div class="col-sm-6">
+                   <div class="progress-bar animate-left">
+                     <div class="bar-data">
+                       <span class="bar-title">{{ $skill->skill }}</span>
+                       <span class="bar-value">{{ $skill->percent }}%</span>
+                     </div>
+                     <div class="bar-line">
+                       <span class="bar-fill" data-width="{{ $skill->percent }}%"></span>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+            @endif
+        @endforeach
+        </div>
      </div>
    </div>  
  </section><!-- #skills -->
@@ -786,4 +739,12 @@
          
 <!-- END: PAGE CONTENT -->
 
+@endsection
+
+@section('script')
+  {!! Html::script('asset/plugins/swal/sweetalert2.min.js') !!}
+@endsection
+
+@section('style')
+  {!! Html::style('asset/plugins/swal/sweetalert2.min.css') !!}
 @endsection
