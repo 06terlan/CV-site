@@ -6,6 +6,7 @@
  <section id="about" class="section section-about">
    <div class="animate-up animated">
      <div class="section-box">
+     
        <div class="profile">
          <div class="row">
            <div class="col-xs-5">
@@ -45,6 +46,7 @@
            </div>
          </div>
        </div>
+
        <div class="profile-social">
          <ul class="social">
            <li><a class="ripple-centered" href="https://www.facebook.com/terlan.abdullayev.16" target="_blank"><i class="rsicon rsicon-facebook"></i></a></li>
