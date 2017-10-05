@@ -2,4 +2,5 @@
 !public/
 !.gitignore
 !about.txt
+!skills.json
 !default_posts

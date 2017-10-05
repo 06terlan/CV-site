@@ -54,13 +54,13 @@
            <li><a class="ripple-centered" href="https://www.linkedin.com/in/terlan-abdullayev-45b76783/" target="_blank"><i class="rsicon rsicon-linkedin"></i></a></li>
            <li><a class="ripple-centered"><i class="rsicon rsicon-google-plus"></i></a></li>
            <li><a class="ripple-centered"><i class="rsicon rsicon-dribbble"></i></a></li>
-           <li><a class="ripple-centered" href="" target="_blank"><i class="rsicon rsicon-instagram"></i></a></li>
+           <li><a class="ripple-centered" href="https://www.instagram.com/06terlan/" target="_blank"><i class="rsicon rsicon-instagram"></i></a></li>
          </ul>
        </div>
      </div>
 
       <div class="section-txt-btn">
-          <p><a class="btn btn-lg btn-border ripple" target="_blank" href="http://dev.novembit.com/rs_card/wp-content/uploads/2015/11/test-1.pdf">Download Resume</a></p>
+          <p><a class="btn btn-lg btn-border ripple" target="_blank" href="{{ url('cv.pdf') }}">Download Resume</a></p>
           <p>
               {!! $about !!}
           </p>

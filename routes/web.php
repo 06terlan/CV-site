@@ -52,8 +52,8 @@ Route::group(['prefix' => 'admin' , 'middleware' => 'auth' ], function(){
 Route::get('{home?}', 'HomeController@index')->where('home','home');
 
 //about
-Route::get('/about', 'AboutController@index');
-
-//contact
-Route::get('/contact', 'ContactController@index');
-Route::post('/contact', 'ContactController@save');
+Route::get('/test', function(){
+	Illuminate\Support\Facades\Storage::put('skills.json', App\Models\Skill::all()->toJson() );
+	$data = Illuminate\Support\Facades\Storage::get('skills.json',"");
+	return $data;
+});
