@@ -12,4 +12,9 @@ class Skill extends Model
     {
     	return self::where('deleted',0)->orderBy('created_at', 'desc');
     }
+
+    public function getType()
+    {
+    	return ( $this->type == 'skill' ? 'Skill' : ( $this->type == 'general_skill' ? 'General Skill' : '' ) );
+    }
 }

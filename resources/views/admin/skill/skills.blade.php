@@ -21,6 +21,7 @@
                                 <th>#</th>
                                 <th>Skill</th>
                                 <th>Percent</th>
+                                <th>Type</th>
                                 <th>Created at</th>
                                 <th>Action</th>
                             </tr>
@@ -31,6 +32,7 @@
                                     <td>{{ $skills->perPage() * ($skills->currentPage() - 1) + $loop->iteration }}</td>
                                     <td>{{ $skill->skill }}</td>
                                     <td>{{ $skill->percent }}</td>
+                                    <td>{{ $skill->getType() }}</td>
                                     <td>{{ App\Library\Date::d($skill->created_at,'d-m-Y H:i') }}</td>
                                     <th>
                                         <a href="{{ url('admin/skills/addEdit/' . $skill->id ) }}" data-toggle="tooltip" data-original-title="Edit" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i></a>

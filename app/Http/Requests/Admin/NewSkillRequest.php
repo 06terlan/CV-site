@@ -30,7 +30,8 @@ class NewSkillRequest extends FormRequest
     {
         return [
             'skill'         => 'required|min:1|max:100|string',
-            'percent'       => 'required|integer|max:100|min:1'
+            'percent'       => 'required|integer|max:100|min:1',
+            'type'          => 'required|string|in:skill,general_skill',
         ];
     }
 }

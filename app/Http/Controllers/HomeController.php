@@ -12,10 +12,11 @@ class HomeController extends Controller
 {
     public function index()
     {
-    	$user 	= User::find(1);
-    	$about 	= Storage::get('about.txt');
-    	$skills	= Skill::realSkill()->get();
+    	$user 			= User::find(1);
+    	$about 			= Storage::get('about.txt');
+    	$skills			= Skill::realSkill()->where('type','skill')->get();
+    	$generalSkills	= Skill::realSkill()->where('type','general_skill')->get();
 
-    	return view('layouts.pages.home',[ 'skills' => $skills , 'user' => $user , 'about' => $about ]);
+    	return view('layouts.pages.home',[ 'skills' => $skills , 'user' => $user , 'about' => $about , 'generalSkills' => $generalSkills ]);
     }
 }

@@ -31,6 +31,16 @@
                                 <input required="" name="percent" data-validate-minmax="1,100" type="number" class="form-control" placeholder="Percent" value="{{ $Skill['percent'] }}">
                             </div>
                         </div>
+                        <div class="item form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Type
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <select class="form-control" name="type" required="">
+                                  <option value="skill" {{ $Skill['type'] == 'skill' ? 'selected' : '' }}> Skill </option>
+                                  <option value="general_skill" {{ $Skill['type'] == 'general_skill' ? 'selected' : '' }}> General Skill </option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
                         <div class="ln_solid"></div>
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">

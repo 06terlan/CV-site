@@ -18,6 +18,7 @@ class Skills extends Migration
             $table->increments('id');
             $table->string('skill',100);
             $table->tinyInteger('percent');
+            $table->string('type',20);
             $table->boolean('deleted')->default(0);
             $table->timestamp('created_at')->useCurrent();
         });
@@ -28,6 +29,7 @@ class Skills extends Migration
             $Newskill = new Skill();
             $Newskill->skill = $skill->skill;
             $Newskill->percent = $skill->percent;
+            $Newskill->type = $skill->type;
             $Newskill->save();
         }
     }

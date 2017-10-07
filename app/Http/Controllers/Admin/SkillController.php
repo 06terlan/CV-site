@@ -35,6 +35,7 @@ class SkillController extends Controller
             $post                   = new Skill();
             $post->skill            = $request->input('skill');
             $post->percent          = $request->input('percent');
+            $post->type             = $request->input('type');
 
             $post->save();
         }
@@ -43,6 +44,7 @@ class SkillController extends Controller
             $post                   = Skill::find( $request->input('id') );
             $post->skill            = $request->input('skill');
             $post->percent          = $request->input('percent');
+            $post->type             = $request->input('type');
 
             $post->save();
         }

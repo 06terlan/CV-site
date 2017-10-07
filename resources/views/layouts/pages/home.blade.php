@@ -75,13 +75,13 @@
         @php ( $count = 0 )
         @foreach ( $skills as $skill )
             @php ( $count++ )
-            @if ( $count % 2 == 0 )
-                <div class="row">             
+            @if ( $count % 2 == 1 )
+                <div class="row">
                  <div class="col-sm-6">
                    <div class="progress-bar animate-right">
                      <div class="bar-data">
                        <span class="bar-title">{{ $skill->skill }}</span>
-                       <span class="bar-value">{{ $skill->percent }}%</span>
+                       <span class="bar-value"></span>
                      </div>
                      <div class="bar-line">
                        <span class="bar-fill" data-width="{{ $skill->percent }}%"></span>
@@ -93,7 +93,7 @@
                    <div class="progress-bar animate-left">
                      <div class="bar-data">
                        <span class="bar-title">{{ $skill->skill }}</span>
-                       <span class="bar-value">{{ $skill->percent }}%</span>
+                       <span class="bar-value"></span>
                      </div>
                      <div class="bar-line">
                        <span class="bar-fill" data-width="{{ $skill->percent }}%"></span>
@@ -109,7 +109,51 @@
         @endif
      </div>
    </div>  
- </section><!-- #skills -->
+ </section>
+
+<section id="skills" class="section section-skills">
+   <div class="animate-up animated">
+     <h2 class="section-title">General skills</h2>
+     <div class="section-box">
+        @php ( $count = 0 )
+        @foreach ( $generalSkills as $skill )
+            @php ( $count++ )
+            @if ( $count % 2 == 1 )
+                <div class="row">
+                 <div class="col-sm-6">
+                   <div class="progress-bar animate-right">
+                     <div class="bar-data">
+                       <span class="bar-title">{{ $skill->skill }}</span>
+                       <span class="bar-value"></span>
+                     </div>
+                     <div class="bar-line">
+                       <span class="bar-fill" data-width="{{ $skill->percent }}%"></span>
+                     </div>
+                   </div>
+                 </div>
+            @else
+                <div class="col-sm-6">
+                   <div class="progress-bar animate-left">
+                     <div class="bar-data">
+                       <span class="bar-title">{{ $skill->skill }}</span>
+                       <span class="bar-value"></span>
+                     </div>
+                     <div class="bar-line">
+                       <span class="bar-fill" data-width="{{ $skill->percent }}%"></span>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+            @endif
+        @endforeach
+
+        @if( $count % 2 == 1 )
+            </div>
+        @endif
+     </div>
+   </div>  
+ </section>
+ <!-- #skills -->
          
  <section id="portfolio" class="section section-portfolio">
    <div class="animate-up">
